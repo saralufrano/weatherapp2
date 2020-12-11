@@ -8,13 +8,52 @@
     <title>Weather App</title>
 </head>
 <body>
-    <div class="container" id="top-heading">
-        <h1>Weather App</h1>
-    </div>
+    <div class="container" id="whole-app">
 
-    <div class="button">
-        <button type="button" class="btn btn-primary">Click me</button>
-    </div>
+        <div class="container" id="top-heading">
+            <h1>Seattle, WA</h1>
+        </div>
+
+        <div class="container">
+            <ul>
+                <li id="date-time">
+                    Friday 10:00
+                </li>
+                <li id="weather-status">
+                    Cloudy
+                </li>
+            </ul>    
+        </div>
+        
+        <div class="row">
+            <div class="col-6">
+                <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Cloudy"/>
+            42°F | °C
+            </div>
+            <div class="col-6">
+                <ul>
+                    <li>
+                        Precipitation: 7%
+                    </li>
+                    <li>
+                        Humidity: 80%
+                    </li>
+                    <li>
+                        Wing: 7 mph
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="button">
+            <button type="button" class="btn btn-primary">Click me</button>
+        </div>
+
+        <div class="link" id="source-code-link">
+            <a href="https://github.com/saralufrano/weatherapp2" target="_blank">Open-source code</a> by Sara Lufrano
+        </div>
+
+    </div>  
 <script src="src/index.js"></script>
 </body>
 </html>
