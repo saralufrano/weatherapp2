@@ -1,13 +1,28 @@
-.whole-app{
-    width: 600px;
-    margin: 30 auto;
+#whole-app {
+    width: 900px;
+    margin: 30px auto;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 h1 {
     color: purple;
  }
 
- li{
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ li {
      list-style: none;
  }
 
+#days-of-week {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button {
+    margin: 0 auto 10px;
+}
