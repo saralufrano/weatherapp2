@@ -1,5 +1,5 @@
 #whole-app {
-    width: 900px;
+    max-width: 900px;
     margin: 30px auto;
     border: 1px solid black;
     border-radius: 5px;
@@ -18,6 +18,24 @@ ul {
      list-style: none;
  }
 
+.current-temperature img {
+    margin: 30 auto;
+    position: relative;
+}
+
+ .current-temperature strong {
+     font-size: 45px;
+     font-weight: 300;
+     line-height: 1;
+     top: 10px;
+ }
+
+ .current-temperature .units {
+     position: relative;
+     font-size: 15px;
+     top: -20px;
+ }
+
 #days-of-week {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -25,4 +43,9 @@ ul {
 
 .button {
     margin: 0 auto 10px;
+}
+
+#source-code-link {
+    max-width: 900px;
+    margin: 30px auto;
 }
