@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css"/>
     <title>Weather App</title>
 </head>
@@ -11,7 +12,7 @@
     <div class="container" id="whole-app">
 
         <div class="container" id="top-heading">
-            <h1>Seattle, WA</h1>
+            <h1 id="city"></h1>
         </div>
 
         <div class="container">
@@ -20,7 +21,7 @@
                     Friday 10:00
                 </li>
                 <li id="weather-status">
-                    Cloudy
+                    
                 </li>
             </ul>    
         </div>
@@ -29,7 +30,7 @@
             <div class="col-5">
                 <div class="clearfix current-temperature">
                     <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Cloudy"/>
-                    <strong>42</strong>
+                    <strong id="real-time-temp"></strong>
                     <span class="units">°F | °C
                     </span>
                 </div>
@@ -40,10 +41,10 @@
                         Precipitation: 7%
                     </li>
                     <li>
-                        Humidity: 80%
+                        Humidity: <span id="humidity"></span>%
                     </li>
                     <li>
-                        Wing: 7 mph
+                        Wind: <span id="wind-speed"></span> mph
                     </li>
                 </ul>
             </div>
