@@ -1,5 +1,6 @@
 let apiKey = "b44354c0e29f4b84640f0747a154bc34";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=metric`;
+let city = "Seattle"
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(displayTempperature);
 
