@@ -1,5 +1,5 @@
 body {
-    font-family: 'Rock Salt', cursive;
+    /* font-family: 'Rock Salt', cursive; */
 }
 
 #whole-app {
@@ -20,7 +20,11 @@ ul {
 
  li {
      list-style: none;
-     text-transform: capitalize;
+     
+ }
+
+ li:first-letter {
+    text-transform: capitalize;
  }
 
 .current-temperature img {
