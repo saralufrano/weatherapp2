@@ -9,6 +9,11 @@ body {
     border-radius: 5px;
 }
 
+#search-form {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
 h1 {
     color: purple;
  }

@@ -1,9 +1,3 @@
-let apiKey = "b44354c0e29f4b84640f0747a154bc34";
-let city = "Seattle"
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-
-axios.get(apiUrl).then(displayTempperature);
-
 function formatDate(timestamp) {
     let date = new Date(timestamp);
     let hours = date.getHours();
@@ -20,7 +14,6 @@ function formatDate(timestamp) {
 }
 
 function displayTempperature(response) {
-    console.log(response.data);
     let temperatureElement = document.querySelector("#real-time-temp");
     let cityElement = document.querySelector("#city");
     let statusElement = document.querySelector("#weather-status");
@@ -39,3 +32,19 @@ function displayTempperature(response) {
     iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+function search(city) {
+    let apiKey = "b44354c0e29f4b84640f0747a154bc34";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayTempperature);
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value);
+}
+
+search("Seattle")
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
