@@ -63,3 +63,13 @@ ul {
     max-width: 900px;
     margin: 30px auto;
 }
+
+.active {
+    color: purple;
+    cursor: default;
+    text-decoration: none;
+}
+
+.active:hover {
+    text-decoration: none;
+}

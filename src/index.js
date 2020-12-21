@@ -22,7 +22,9 @@ function displayTempperature(response) {
     let dateElement = document.querySelector("#date-time");
     let iconElement = document.querySelector("#icon");
 
-    temperatureElement.innerHTML = Math.round(response.data.main.temp);
+    fahrenheitTempertature = response.data.main.temp;
+
+    temperatureElement.innerHTML = Math.round(fahrenheitTempertature);
     cityElement.innerHTML = response.data.name;
     statusElement.innerHTML = response.data.weather[0].description;
     humidityElement.innerHTML = response.data.main.humidity;
@@ -44,7 +46,28 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 }
 
-search("Seattle")
+function showCelciusTemp(event){
+    event.preventDefault();
+    let celciusTemperConvertion = (fahrenheitTempertature - 32) * 5 / 9;
+    let temperatureElement = document.querySelector("#real-time-temp");
+    temperatureElement.innerHTML = Math.round(celciusTemperConvertion);
+}
+
+function showFahrenheitTemp(event){
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#real-time-temp");
+    temperatureElement.innerHTML = Math.round(fahrenheitTempertature);
+}
+
+let fahrenheitTempertature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", showCelciusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+search("Seattle")
