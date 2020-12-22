@@ -34,10 +34,128 @@ function displayTempperature(response) {
     iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+function formatHours(timestamp) {
+    let date = new Date(timestamp);
+    let hours = date.getHours();
+        if (hours < 10) {
+            hours = `0${hours}`;
+        }
+    let minutes = date.getMinutes();
+         if (minutes < 10) {
+            minutes = `0${minutes}`;
+         }
+         
+    return `${hours}:${minutes}`;
+}
+
+function displayHourlyTemperature(response) {
+    let forecastElement = document.querySelector("#hourly-forecast");
+    let forecast = response.data.list[0];
+    forecastElement.innerHTML = `
+            <div class="col-2">
+                <ul>
+                    <li>
+                        ${formatHours(forecast.dt * 1000)}
+                    </li>
+                    <li>
+                        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+                    </li>
+                    <li class="hourly-temp">
+                        ${Math.round(forecast.main.temp)}°F
+                    </li>
+                </ul>
+            </div>
+        `;
+
+    forecast = response.data.list[1];
+    forecastElement.innerHTML += `
+            <div class="col-2">
+                <ul>
+                    <li>
+                        ${formatHours(forecast.dt * 1000)}
+                    </li>
+                    <li>
+                        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+                    </li>
+                    <li class="hourly-temp">
+                        ${Math.round(forecast.main.temp)}°F
+                    </li>
+                </ul>
+            </div>
+        `;
+    forecast = response.data.list[2];
+    forecastElement.innerHTML += `
+            <div class="col-2">
+                <ul>
+                    <li>
+                        ${formatHours(forecast.dt * 1000)}
+                    </li>
+                    <li>
+                        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+                    </li>
+                    <li class="hourly-temp">
+                        ${Math.round(forecast.main.temp)}°F
+                    </li>
+                </ul>
+            </div>
+        `;
+    forecast = response.data.list[3];
+    forecastElement.innerHTML += `
+            <div class="col-2">
+                <ul>
+                    <li>
+                        ${formatHours(forecast.dt * 1000)}
+                    </li>
+                    <li>
+                        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+                    </li>
+                    <li class="hourly-temp">
+                        ${Math.round(forecast.main.temp)}°F
+                    </li>
+                </ul>
+            </div>
+        `;
+    forecast = response.data.list[4];
+    forecastElement.innerHTML += `
+            <div class="col-2">
+                <ul>
+                    <li>
+                        ${formatHours(forecast.dt * 1000)}
+                    </li>
+                    <li>
+                        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+                    </li>
+                    <li class="hourly-temp">
+                        ${Math.round(forecast.main.temp)}°F
+                    </li>
+                </ul>
+            </div>
+        `;
+    forecast = response.data.list[5];
+    forecastElement.innerHTML += `
+            <div class="col-2">
+                <ul>
+                    <li>
+                        ${formatHours(forecast.dt * 1000)}
+                    </li>
+                    <li>
+                        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+                    </li>
+                    <li class="hourly-temp">
+                        ${Math.round(forecast.main.temp)}°F
+                    </li>
+                </ul>
+            </div>
+        `;
+}
+
 function search(city) {
     let apiKey = "b44354c0e29f4b84640f0747a154bc34";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayTempperature);
+
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayHourlyTemperature);
 }
 
 function handleSubmit(event) {
@@ -70,4 +188,4 @@ celciusLink.addEventListener("click", showCelciusTemp);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
-search("Seattle")
+search("Seattle");
